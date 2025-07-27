@@ -1,0 +1,13 @@
+.timer-container {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+  transition: color 0.5s ease;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}

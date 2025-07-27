@@ -17,3 +17,38 @@
     }
 
     setTimeout(updateTimer, 60000);
+
+
+
+    const timerDisplay = document.getElementById('timer2');
+const startBtn = document.getElementById('startBtn');
+
+let timer;
+let timeLeft = 30000;
+
+function startTimer() {
+  timeLeft = 30000;
+  timerDisplay.textContent = (timeLeft / 1000).toFixed(3);
+  startBtn.disabled = true;
+
+  timer = setInterval(() => {
+    timeLeft -= 1;
+
+    timerDisplay.textContent = (timeLeft / 1000).toFixed(3);
+
+    if (timeLeft <= 10000 && !timerDisplay.classList.contains('animate-warning')) {
+      timerDisplay.classList.add('animate-warning');
+    }
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      timerDisplay.textContent = '0.000';
+      timerDisplay.classList.remove('animate-warning');
+      startBtn.disabled = false;
+      alert('Час вийшов!');
+    }
+  }, 1);
+}
+
+startBtn.addEventListener('click', startTimer);
+
